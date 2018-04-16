@@ -40,7 +40,14 @@ namespace AP_CSP_Create
             {
                 //this just skips if no file is found
             }
-
+            Login_Button.IsEnabled = true;
+            Login_Button.Visibility = System.Windows.Visibility.Visible;
+            CreateAccount_Button.IsEnabled = true;
+            CreateAccount_Button.Visibility = System.Windows.Visibility.Visible;
+            Quit_Button.IsEnabled = true;
+            Quit_Button.Visibility = System.Windows.Visibility.Visible;
+            title.IsEnabled = true;
+            title.Visibility = System.Windows.Visibility.Visible;
         }
         //when create account button is clicked
         private void createAccount_Click(object sender, RoutedEventArgs e)
