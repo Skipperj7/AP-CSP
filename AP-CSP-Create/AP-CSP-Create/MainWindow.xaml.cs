@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+//cite these imports
+
 
 namespace AP_CSP_Create
 {
@@ -32,6 +34,7 @@ namespace AP_CSP_Create
                 {
                     usernamePasswordEmail.Add(reader.ReadLine());
                 }
+                reader.Close();
             }
             catch (Exception)
             {
@@ -64,8 +67,9 @@ namespace AP_CSP_Create
         private void createAccountInCreateAccount_Click(object sender, RoutedEventArgs e)
         {
             createAccount(Username_TextBox.Text, Password_TextBox.Text, Email_TextBox.Text);
-            
-            if (createdAccount) {
+
+            if (createdAccount)
+            {
                 Username_TextBox.IsEnabled = false;
                 Username_TextBox.Visibility = System.Windows.Visibility.Hidden;
                 Password_TextBox.IsEnabled = false;
@@ -76,6 +80,8 @@ namespace AP_CSP_Create
                 back_Button.Visibility = System.Windows.Visibility.Hidden;
                 LoginInLogin_Button.IsEnabled = false;
                 LoginInLogin_Button.Visibility = System.Windows.Visibility.Hidden;
+                CreateAccountInCreateAccount_Button.IsEnabled = false;
+                CreateAccountInCreateAccount_Button.Visibility = System.Windows.Visibility.Hidden;
                 openAccount();
             }
         }
@@ -88,20 +94,28 @@ namespace AP_CSP_Create
         public static void createAccount(string username, string password, string email)
         {
             //validdate username 
-            int? index = usernamePasswordEmail.FindIndex(x => x.StartsWith(username));
-            if (index == null)
+            int? index = null;
+            foreach (string username2 in usernamePasswordEmail)
+            {
+                if (username2 == username)
+                {
+                    index = usernamePasswordEmail.IndexOf(username2);
+                }
+            }
+            if (index != null)
             {
                 MessageBox.Show("This username already exists.");
-               
+
             }
             else
             {
+
                 createdAccount = true;
                 string account = username + "-" + password + "-" + email;
                 usernamePasswordEmail.Add(account);
                 saveList();
 
-                
+
             }
         }
 
@@ -116,6 +130,8 @@ namespace AP_CSP_Create
             LoginInLogin_Button.Visibility = System.Windows.Visibility.Visible;
             back_Button.IsEnabled = true;
             back_Button.Visibility = System.Windows.Visibility.Visible;
+            CreateAccountInCreateAccount_Button.IsEnabled = false;
+            CreateAccountInCreateAccount_Button.Visibility = System.Windows.Visibility.Hidden;
 
             Login_Button.IsEnabled = false;
             Login_Button.Visibility = System.Windows.Visibility.Hidden;
@@ -142,13 +158,22 @@ namespace AP_CSP_Create
                 back_Button.Visibility = System.Windows.Visibility.Hidden;
                 LoginInLogin_Button.IsEnabled = false;
                 LoginInLogin_Button.Visibility = System.Windows.Visibility.Hidden;
+                CreateAccountInCreateAccount_Button.IsEnabled = false;
+                CreateAccountInCreateAccount_Button.Visibility = System.Windows.Visibility.Hidden;
                 openAccount();
             }
         }
         //checks if account is real
         private static void checkAccount(string username, string password)
         {
-            int? index = usernamePasswordEmail.FindIndex(x => x.StartsWith(username));
+            int? index = null;
+            foreach (string username2 in usernamePasswordEmail)
+            {
+                if (username2 == username)
+                {
+                    index = usernamePasswordEmail.IndexOf(username2);
+                }
+            }
             if (index != null)
             {
                 try
@@ -200,6 +225,8 @@ namespace AP_CSP_Create
             back_Button.Visibility = System.Windows.Visibility.Hidden;
             LoginInLogin_Button.IsEnabled = false;
             LoginInLogin_Button.Visibility = System.Windows.Visibility.Hidden;
+            CreateAccountInCreateAccount_Button.IsEnabled = false;
+            CreateAccountInCreateAccount_Button.Visibility = System.Windows.Visibility.Hidden;
 
             Login_Button.IsEnabled = true;
             Login_Button.Visibility = System.Windows.Visibility.Visible;
@@ -211,20 +238,25 @@ namespace AP_CSP_Create
 
         private static void saveList()
         {
-            TextWriter saver = new StreamWriter("AccountDetails.txt");
+            
+                TextWriter saver = new StreamWriter("AccountDetails.txt");
 
-            foreach (String deatils in usernamePasswordEmail)
-                saver.WriteLine(deatils);
+                foreach (String deatils in usernamePasswordEmail)
+                    saver.WriteLine(deatils);
 
-            saver.Close();
-            Console.WriteLine("saved");
+                saver.Close();
+                Console.WriteLine("saved");
+            
         }
 
         private void purgeSave(object sender, RoutedEventArgs e)
         {
-            TextWriter saver = new StreamWriter("AccountDetails.txt");
-            saver.WriteLine("");
-            saver.Close();
+            
+                TextWriter saver = new StreamWriter("AccountDetails.txt");
+                saver.WriteLine("");
+                saver.Close();
+                File.Delete("AccountDetails.txt");
+            
             Console.WriteLine("purged");
         }
     }
