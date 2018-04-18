@@ -35,10 +35,19 @@ namespace AP_CSP_Create
                     usernamePasswordEmail.Add(reader.ReadLine());
                 }
                 reader.Close();
+
+                StreamReader readerU = new StreamReader("AccountDetailsUsername.txt");
+                while (readerU.Peek() >= 0)
+                {
+                    usernameList.Add(readerU.ReadLine());
+                }
+                readerU.Close();
+
             }
             catch (Exception)
             {
                 //this just skips if no file is found
+                Console.WriteLine("Save file missing");
             }
             Login_Button.IsEnabled = true;
             Login_Button.Visibility = System.Windows.Visibility.Visible;
@@ -95,36 +104,52 @@ namespace AP_CSP_Create
 
         //accounts list
         public static List<string> usernamePasswordEmail = new List<string>();
+        public static List<string> usernameList = new List<string>();
 
         //create account
         static bool createdAccount;
         public static void createAccount(string username, string password, string email)
         {
             //validdate username 
-            int? index = null;
-            foreach (string username2 in usernamePasswordEmail)
+            
+            foreach (string username2 in usernameList)
             {
+
                 if (username2 == username)
                 {
-                    index = usernamePasswordEmail.IndexOf(username2);
+                   
+                    MessageBox.Show("This username already exists.");
+
+                      
+                }
+                else
+                {
+
+                    createdAccount = true;
+                    string account = username + "-" + password + "-" + email;
+                    usernamePasswordEmail.Add(account);
+                    usernameList.Add(username);
+                    saveList();
+                    saveUsernameList();
+                    break;
+
+
                 }
             }
-            if (index != null)
-            {
-                MessageBox.Show("This username already exists.");
 
-            }
-            else
+            if (usernamePasswordEmail.Count <= 0)
             {
-
+                Console.WriteLine("File has been deleted");
                 createdAccount = true;
                 string account = username + "-" + password + "-" + email;
                 usernamePasswordEmail.Add(account);
+                usernameList.Add(username);
                 saveList();
-
-
+                saveUsernameList();
             }
         }
+            
+        
 
         public static bool loginSuccess;
         private void Login_Click(object sender, RoutedEventArgs e)
@@ -173,40 +198,62 @@ namespace AP_CSP_Create
         //checks if account is real
         private static void checkAccount(string username, string password)
         {
-            int? index = null;
-            foreach (string username2 in usernamePasswordEmail)
+            int? index;
+            foreach (string username2 in usernameList)
             {
                 if (username2 == username)
                 {
-                    index = usernamePasswordEmail.IndexOf(username2);
-                }
-            }
-            if (index != null)
-            {
-                try
-                {
-                    string UsernamePasswordEmail = usernamePasswordEmail[(int)index];
-                    int UsrLength = username.Length + 1;
-                    int PasLength = password.Length;
-                    string Password = UsernamePasswordEmail.Substring(UsrLength, PasLength);
+                    
+                    int? i = 0;
+                    try
+                    {
+                        while (username2 != usernameList[(int)i])
+                        {
+                            i++;
+                        }
+                        index = i;
+                        if (index != null)
+                        {
 
-                    if (Password == password)
-                    {
-                        loginSuccess = true;
+                            try
+                            {
+                                string UsernamePasswordEmail = usernamePasswordEmail[(int)index];
+                                int UsrLength = username.Length + 1;
+                                int PasLength = password.Length;
+                                string Password = UsernamePasswordEmail.Substring(UsrLength, PasLength);
+
+                                if (Password == password)
+                                {
+                                    loginSuccess = true;
+                                    break;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("The password is inncorrect.");
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("This account doesn't exist!");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("This account doesn't exist!");
+                        }
                     }
-                    else
+                    catch (Exception)
                     {
-                        MessageBox.Show("The password is inncorrect.");
+                        Console.WriteLine("Error");
                     }
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("This account doesn't exist!");
+                    
                 }
             }
-            else
+            
+            if (usernamePasswordEmail.Count <= 0)
             {
-                MessageBox.Show("This account doesn't exist!");
+                Console.WriteLine("File doesn't exist");
+                MessageBox.Show("There is no save file.");
             }
         }
 
@@ -246,24 +293,39 @@ namespace AP_CSP_Create
         private static void saveList()
         {
             
-                TextWriter saver = new StreamWriter("AccountDetails.txt");
+            TextWriter saver = new StreamWriter("AccountDetails.txt");
 
-                foreach (String deatils in usernamePasswordEmail)
-                    saver.WriteLine(deatils);
+            foreach (String deatils in usernamePasswordEmail)
+                saver.WriteLine(deatils);
 
-                saver.Close();
-                Console.WriteLine("saved");
-            
+            saver.Close();
+            Console.WriteLine("saved");
+
         }
+        private static void saveUsernameList()
+        {
 
+            TextWriter saver = new StreamWriter("AccountDetailsUsername.txt");
+
+            foreach (String deatils in usernameList)
+                saver.WriteLine(deatils);
+
+            saver.Close();
+            Console.WriteLine("saved");
+
+        }
+   
         private void purgeSave(object sender, RoutedEventArgs e)
         {
-            
-                TextWriter saver = new StreamWriter("AccountDetails.txt");
-                saver.WriteLine("");
-                saver.Close();
-                File.Delete("AccountDetails.txt");
-            
+
+            TextWriter saver = new StreamWriter("AccountDetails.txt");
+            saver.WriteLine("");
+            saver.Close();
+            File.Delete("AccountDetails.txt");
+            TextWriter saverU = new StreamWriter("AccountDetailsUsername.txt");
+            saverU.WriteLine("");
+            saverU.Close();
+            File.Delete("AccountDetailsUsername.txt");
             Console.WriteLine("purged");
         }
     }
