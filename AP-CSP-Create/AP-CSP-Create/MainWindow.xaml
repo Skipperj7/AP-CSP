@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="Login_Button" Content="Login" Margin="200,100,200,0" Click="Login_Click" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Width="117"/>
-        <Button x:Name="CreateAccount_Button" Content="Create Account" Margin="210,150,210,0" Click="createAccount_Click" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Width="97"/>
-        <Button x:Name="Quit_Button" Content="Quit" HorizontalAlignment="Center" Margin="221,185,221,0" VerticalAlignment="Top" Width="75" Click="Quit_Click"/>
-        <Image x:Name="title" Source="Capture.PNG" Stretch="Fill" Height="94" VerticalAlignment="Top" HorizontalAlignment="Center" Width="517"/>
+        <Button x:Name="Login_Button" Content="Login" Margin="200,100,200,0" Click="Login_Click" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Width="117" Visibility="Hidden"/>
+        <Button x:Name="CreateAccount_Button" Content="Create Account" Margin="210,150,210,0" Click="createAccount_Click" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Width="97" Visibility="Hidden"/>
+        <Button x:Name="Quit_Button" Content="Quit" HorizontalAlignment="Center" Margin="221,185,221,0" VerticalAlignment="Top" Width="75" Click="Quit_Click" Visibility="Hidden"/>
+        <Image x:Name="title" Source="Capture.PNG" Stretch="Fill" Height="94" VerticalAlignment="Top" HorizontalAlignment="Center" Width="517" Visibility="Hidden"/>
         <Button x:Name="LoginInLogin_Button" Content="Login" HorizontalAlignment="Left" Margin="210,185,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Visibility="Hidden" Click="LoginInLogin_Click"/>
         <TextBox x:Name="Username_TextBox" HorizontalAlignment="Left" Height="23" Margin="197,127,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="120" IsEnabled="False" Visibility="Hidden"/>
         <TextBox x:Name="Password_TextBox" HorizontalAlignment="Left" Height="23" Margin="197,157,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120" Visibility="Hidden" IsEnabled="False"/>
@@ -18,6 +18,55 @@
         <TextBox x:Name="Email_TextBox" HorizontalAlignment="Left" Height="23" Margin="197,100,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" IsEnabled="False" Visibility="Hidden"/>
         <Button x:Name="back_Button" Content="back" HorizontalAlignment="Left" Margin="226,210,0,0" VerticalAlignment="Top" Width="64" Height="19" Visibility="Hidden" IsEnabled="False" Click="back_Click"/>
         <Button x:Name="devPurge_Button" Content="DevPurgeButton" HorizontalAlignment="Left" Margin="0,299,0,0" VerticalAlignment="Top" Width="55" Click="purgeSave"/>
+        <Button x:Name="_1Day_Button" Content="1 Day" HorizontalAlignment="Left" Margin="102,113,0,0" VerticalAlignment="Top" Width="80" Height="64" IsEnabled="False" Visibility="Hidden"/>
+        <Button x:Name="_7Day_Button" Content="7 Days" HorizontalAlignment="Left" Margin="210,113,0,0" VerticalAlignment="Top" Width="80" Height="64" IsEnabled="False" Visibility="Hidden"/>
+        <Button x:Name="_21Day_Button" Content="21 Days" HorizontalAlignment="Left" Margin="322,113,0,0" VerticalAlignment="Top" Width="80" Height="64" IsEnabled="False" Visibility="Hidden"/>
+        <Label x:Name="Goal_Label" Content="Goal:" HorizontalAlignment="Left" Margin="183,10,0,0" VerticalAlignment="Top" FontFamily="Showcard Gothic" FontSize="20" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="goal_textBox" HorizontalAlignment="Left" Height="23" Margin="253,16,0,0" TextWrapping="Wrap" Text="Enter Goal" VerticalAlignment="Top" Width="120" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Total_Label" Content="Total:" HorizontalAlignment="Left" Margin="171,45,0,0" VerticalAlignment="Top" FontFamily="Showcard Gothic" FontSize="20" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="TotalAmount_Label_" Content="$" HorizontalAlignment="Left" Margin="253,52,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Orator Std" Height="25" Width="254" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day1_label" Content="Day 1" HorizontalAlignment="Left" Margin="42,84,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day1_TextBox" HorizontalAlignment="Left" Height="17" Margin="42,112,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day2_label" Content="Day 2" HorizontalAlignment="Left" Margin="103,84,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day2_TextBox" HorizontalAlignment="Left" Height="17" Margin="103,112,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day3_label" Content="Day 3" HorizontalAlignment="Left" Margin="164,84,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day3_TextBox" HorizontalAlignment="Left" Height="17" Margin="164,112,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day4_label" Content="Day 4" HorizontalAlignment="Left" Margin="226,84,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day4_TextBox" HorizontalAlignment="Left" Height="17" Margin="226,112,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day5_label" Content="Day 5" HorizontalAlignment="Left" Margin="288,84,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day5_TextBox" HorizontalAlignment="Left" Height="17" Margin="288,112,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day6_label" Content="Day 6" HorizontalAlignment="Left" Margin="350,84,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day6_TextBox" HorizontalAlignment="Left" Height="17" Margin="350,112,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day7_label" Content="Day 7" HorizontalAlignment="Left" Margin="412,84,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day7_TextBox" HorizontalAlignment="Left" Height="17" Margin="412,112,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day8_label" Content="Day 8" HorizontalAlignment="Left" Margin="42,132,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day8_TextBox" HorizontalAlignment="Left" Height="17" Margin="42,160,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day9_label" Content="Day 9" HorizontalAlignment="Left" Margin="103,132,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day9_TextBox" HorizontalAlignment="Left" Height="17" Margin="103,160,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day10_label" Content="Day 10" HorizontalAlignment="Left" Margin="164,132,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day10_TextBox" HorizontalAlignment="Left" Height="17" Margin="164,160,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day11_label" Content="Day 11" HorizontalAlignment="Left" Margin="226,132,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day11_TextBox" HorizontalAlignment="Left" Height="17" Margin="226,160,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day12_label" Content="Day 12" HorizontalAlignment="Left" Margin="288,132,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day12_TextBox" HorizontalAlignment="Left" Height="17" Margin="288,160,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day13_label" Content="Day 13" HorizontalAlignment="Left" Margin="350,132,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day13_TextBox" HorizontalAlignment="Left" Height="17" Margin="350,160,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day14_label" Content="Day 14" HorizontalAlignment="Left" Margin="412,132,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day14_TextBox" HorizontalAlignment="Left" Height="17" Margin="412,160,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day15_label" Content="Day 15" HorizontalAlignment="Left" Margin="42,183,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day15_TextBox" HorizontalAlignment="Left" Height="17" Margin="42,211,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day16_label" Content="Day 16" HorizontalAlignment="Left" Margin="103,183,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day16_TextBox" HorizontalAlignment="Left" Height="17" Margin="103,211,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day17_label" Content="Day 17" HorizontalAlignment="Left" Margin="164,183,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day17_TextBox" HorizontalAlignment="Left" Height="17" Margin="164,211,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day18_label" Content="Day 18" HorizontalAlignment="Left" Margin="226,183,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day18_TextBox" HorizontalAlignment="Left" Height="17" Margin="226,211,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day19_label" Content="Day 19" HorizontalAlignment="Left" Margin="288,183,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day19_TextBox" HorizontalAlignment="Left" Height="17" Margin="288,211,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day20_label" Content="Day 20" HorizontalAlignment="Left" Margin="350,183,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day20_TextBox" HorizontalAlignment="Left" Height="17" Margin="350,211,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="Day21_label" Content="Day 21" HorizontalAlignment="Left" Margin="412,183,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="Day21_TextBox" HorizontalAlignment="Left" Height="17" Margin="412,211,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
 
     </Grid>
 </Window>

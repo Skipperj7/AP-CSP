@@ -192,7 +192,28 @@ namespace AP_CSP_Create
                 LoginInLogin_Button.Visibility = System.Windows.Visibility.Hidden;
                 CreateAccountInCreateAccount_Button.IsEnabled = false;
                 CreateAccountInCreateAccount_Button.Visibility = System.Windows.Visibility.Hidden;
+                title.IsEnabled = false;
+                title.Visibility = System.Windows.Visibility.Hidden;
                 openAccount();
+
+                Goal_Label.IsEnabled = true;
+                Goal_Label.Visibility = System.Windows.Visibility.Visible;
+                TotalAmount_Label_.IsEnabled = true;
+                TotalAmount_Label_.Visibility = System.Windows.Visibility.Visible;
+                goal_textBox.IsEnabled = true;
+                goal_textBox.Visibility = System.Windows.Visibility.Visible;
+                Total_Label.IsEnabled = true;
+                Total_Label.Visibility = System.Windows.Visibility.Visible;
+                if (!_1Day && !_7Day && !_21Day)
+                {
+                    
+                    _1Day_Button.IsEnabled = true;
+                    _1Day_Button.Visibility = System.Windows.Visibility.Visible;
+                    _7Day_Button.IsEnabled = true;
+                    _7Day_Button.Visibility = System.Windows.Visibility.Visible;
+                    _21Day_Button.IsEnabled = true;
+                    _21Day_Button.Visibility = System.Windows.Visibility.Visible;
+                }
             }
         }
         //checks if account is real
@@ -259,7 +280,40 @@ namespace AP_CSP_Create
 
         private static void openAccount()
         {
-
+            
+        }
+        static bool _1Day;
+        static bool _7Day;
+        static bool _21Day;
+        private void _1Day_Click(object sender, RoutedEventArgs e)
+        {
+            _1Day_Button.IsEnabled = false;
+            _1Day_Button.Visibility = System.Windows.Visibility.Hidden;
+            _7Day_Button.IsEnabled = false;
+            _7Day_Button.Visibility = System.Windows.Visibility.Hidden;
+            _21Day_Button.IsEnabled = false;
+            _21Day_Button.Visibility = System.Windows.Visibility.Hidden;
+            _1Day = true;
+        }
+        private void _7Day_Click(object sender, RoutedEventArgs e)
+        {
+            _1Day_Button.IsEnabled = false;
+            _1Day_Button.Visibility = System.Windows.Visibility.Hidden;
+            _7Day_Button.IsEnabled = false;
+            _7Day_Button.Visibility = System.Windows.Visibility.Hidden;
+            _21Day_Button.IsEnabled = false;
+            _21Day_Button.Visibility = System.Windows.Visibility.Hidden;
+            _7Day = true;
+        }
+        private void _21Day_Click(object sender, RoutedEventArgs e)
+        {
+            _1Day_Button.IsEnabled = false;
+            _1Day_Button.Visibility = System.Windows.Visibility.Hidden;
+            _7Day_Button.IsEnabled = false;
+            _7Day_Button.Visibility = System.Windows.Visibility.Hidden;
+            _21Day_Button.IsEnabled = false;
+            _21Day_Button.Visibility = System.Windows.Visibility.Hidden;
+            _21Day = true;
         }
 
         private void Quit_Click(object sender, RoutedEventArgs e)
