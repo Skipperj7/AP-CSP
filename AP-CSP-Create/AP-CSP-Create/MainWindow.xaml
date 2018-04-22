@@ -18,13 +18,13 @@
         <TextBox x:Name="Email_TextBox" HorizontalAlignment="Left" Height="23" Margin="197,100,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" IsEnabled="False" Visibility="Hidden"/>
         <Button x:Name="back_Button" Content="back" HorizontalAlignment="Left" Margin="226,210,0,0" VerticalAlignment="Top" Width="64" Height="19" Visibility="Hidden" IsEnabled="False" Click="back_Click"/>
         <Button x:Name="devPurge_Button" Content="DevPurgeButton" HorizontalAlignment="Left" Margin="0,299,0,0" VerticalAlignment="Top" Width="55" Click="purgeSave"/>
-        <Button x:Name="_1Day_Button" Content="1 Day" HorizontalAlignment="Left" Margin="102,113,0,0" VerticalAlignment="Top" Width="80" Height="64" IsEnabled="False" Visibility="Hidden"/>
-        <Button x:Name="_7Day_Button" Content="7 Days" HorizontalAlignment="Left" Margin="210,113,0,0" VerticalAlignment="Top" Width="80" Height="64" IsEnabled="False" Visibility="Hidden"/>
-        <Button x:Name="_21Day_Button" Content="21 Days" HorizontalAlignment="Left" Margin="322,113,0,0" VerticalAlignment="Top" Width="80" Height="64" IsEnabled="False" Visibility="Hidden"/>
+        <Button x:Name="_1Day_Button" Content="1 Day" HorizontalAlignment="Left" Margin="102,113,0,0" VerticalAlignment="Top" Width="80" Height="64" IsEnabled="False" Visibility="Hidden" Click="_1Day_Click"/>
+        <Button x:Name="_7Day_Button" Content="7 Days" HorizontalAlignment="Left" Margin="210,113,0,0" VerticalAlignment="Top" Width="80" Height="64" IsEnabled="False" Visibility="Hidden" Click="_7Day_Click"/>
+        <Button x:Name="_21Day_Button" Content="21 Days" HorizontalAlignment="Left" Margin="322,113,0,0" VerticalAlignment="Top" Width="80" Height="64" IsEnabled="False" Visibility="Hidden" Click="_21Day_Click"/>
         <Label x:Name="Goal_Label" Content="Goal:" HorizontalAlignment="Left" Margin="183,10,0,0" VerticalAlignment="Top" FontFamily="Showcard Gothic" FontSize="20" Visibility="Hidden" IsEnabled="False"/>
-        <TextBox x:Name="goal_textBox" HorizontalAlignment="Left" Height="23" Margin="253,16,0,0" TextWrapping="Wrap" Text="Enter Goal" VerticalAlignment="Top" Width="120" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
-        <Label x:Name="Total_Label" Content="Total:" HorizontalAlignment="Left" Margin="171,45,0,0" VerticalAlignment="Top" FontFamily="Showcard Gothic" FontSize="20" Visibility="Hidden" IsEnabled="False"/>
-        <Label x:Name="TotalAmount_Label_" Content="$" HorizontalAlignment="Left" Margin="253,52,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Orator Std" Height="25" Width="254" Visibility="Hidden" IsEnabled="False"/>
+        <TextBox x:Name="goal_textBox" HorizontalAlignment="Left" Height="23" Margin="253,16,0,0" TextWrapping="Wrap" Text="Enter Goal" VerticalAlignment="Top" Width="120" FontSize="18" IsEnabled="False" Visibility="Hidden"/>
+        <Label x:Name="Total_Label" Content="Total:" HorizontalAlignment="Left" Margin="171,45,0,0" VerticalAlignment="Top" FontFamily="Showcard Gothic" FontSize="20" IsEnabled="False" Visibility="Hidden"/>
+        <Label x:Name="TotalAmount_Label_" Content="$" HorizontalAlignment="Left" Margin="253,45,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Orator Std" Height="31" Width="254" IsEnabled="False" Visibility="Hidden"/>
         <Label x:Name="Day1_label" Content="Day 1" HorizontalAlignment="Left" Margin="42,84,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
         <TextBox x:Name="Day1_TextBox" HorizontalAlignment="Left" Height="17" Margin="42,112,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
         <Label x:Name="Day2_label" Content="Day 2" HorizontalAlignment="Left" Margin="103,84,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
@@ -67,6 +67,8 @@
         <TextBox x:Name="Day20_TextBox" HorizontalAlignment="Left" Height="17" Margin="350,211,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
         <Label x:Name="Day21_label" Content="Day 21" HorizontalAlignment="Left" Margin="412,183,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontSize="18" Visibility="Hidden" IsEnabled="False"/>
         <TextBox x:Name="Day21_TextBox" HorizontalAlignment="Left" Height="17" Margin="412,211,0,0" TextWrapping="Wrap" Text="Enter $" VerticalAlignment="Top" Width="56" Visibility="Hidden" IsEnabled="False"/>
+        <Button x:Name="Save_button" Content="Save" HorizontalAlignment="Left" Margin="412,275,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="save_button_click" Visibility="Hidden"/>
+        <Button x:Name="reset_button" Content="Reset" HorizontalAlignment="Left" Margin="422,296,0,0" VerticalAlignment="Top" Width="56" Height="19" Visibility="Hidden" IsEnabled="False" Click="resetVal"/>
 
     </Grid>
 </Window>
