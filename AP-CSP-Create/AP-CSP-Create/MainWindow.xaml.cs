@@ -99,6 +99,18 @@ namespace AP_CSP_Create
                 LoginInLogin_Button.Visibility = System.Windows.Visibility.Hidden;
                 CreateAccountInCreateAccount_Button.IsEnabled = false;
                 CreateAccountInCreateAccount_Button.Visibility = System.Windows.Visibility.Hidden;
+                title.IsEnabled = false;
+                title.Visibility = System.Windows.Visibility.Hidden;
+
+
+                Goal_Label.IsEnabled = true;
+                Goal_Label.Visibility = System.Windows.Visibility.Visible;
+                TotalAmount_Label_.IsEnabled = true;
+                TotalAmount_Label_.Visibility = System.Windows.Visibility.Visible;
+                goal_textBox.IsEnabled = true;
+                goal_textBox.Visibility = System.Windows.Visibility.Visible;
+                Total_Label.IsEnabled = true;
+                Total_Label.Visibility = System.Windows.Visibility.Visible;
                 if (!File.Exists(usernameOfUser + "Values.txt"))
                 {
 
