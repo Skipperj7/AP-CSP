@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
-//cite these imports
+//Microsoft Corporation (2009) All libraries
 
 
 namespace AP_CSP_Create
